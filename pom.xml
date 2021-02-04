@@ -1,32 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
- 
-    <groupId>com.testra</groupId>
-    <artifactId>firstjab</artifactId>
-    <version>1.0-SNAPSHOT</version>
+
+    <groupId>com.williamhill</groupId>
+    <artifactId>rosi-device-tester</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
- 
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <maven.compiler.version>3.6.0</maven.compiler.version>
-        <karate.version>0.9.1</karate.version>
-    </properties>    
+        <karate.version>0.9.6</karate.version>
+    </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.intuit.karate/karate-junit5 -->
         <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-apache</artifactId>
             <version>${karate.version}</version>
             <scope>test</scope>
-        </dependency>            
+        </dependency>
         <dependency>
             <groupId>com.intuit.karate</groupId>
-            <artifactId>karate-junit4</artifactId>
+            <artifactId>karate-junit5</artifactId>
             <version>${karate.version}</version>
             <scope>test</scope>
-        </dependency>		
+        </dependency>
+
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>3.8.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -50,7 +59,12 @@
                     <compilerArgument>-Werror</compilerArgument>
                 </configuration>
             </plugin>
-        </plugins>        
-    </build>       
-    
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

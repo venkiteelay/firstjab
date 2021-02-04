@@ -7,5 +7,6 @@ Feature: To test Apollo server based graphql subscriptions
     * def socket = karate.webSocket(demoBaseUrl, handler)
     * def txt = '{"type": "connection_init", "payload": {}}'
     * eval socket.send(txt)
+
     * def result = karate.listen(5000)
     * match result == {type:'connection_ack'}
